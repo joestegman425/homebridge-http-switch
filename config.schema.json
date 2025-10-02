@@ -1,17 +1,62 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "HomebridgePlaysoundWindowsPlugin",
   "pluginType": "platform",
   "singular": true,
   "strictValidation": false,
   "schema": {
     "type": "object",
-    "required": ["name"],
-    "additionalProperties": false,
     "properties": {
       "name": {
         "title": "Name",
         "type": "string",
-        "default": "Example Dynamic Platform"
+        "required": true,
+        "default": "Homebridge Plugin that exposes WAV files as Switches"
+      },
+      "playlocalsound": {
+        "title": "Play Local Sound Settings",
+        "type": "object",
+        "required": false,
+        "properties": {
+          "devicename": {
+            "title": "Sound Device Name. Name of 'help' will display device names on the system.",
+            "type": "string",
+            "required": true,
+            "default": "help"
+          },
+          "hostAPI": {
+            "title": "Default Host API. Use devicename of 'help' to see available host APIs.",
+            "type": "string"
+          },
+          "wavfolder": {
+            "title": "Wav Files Folder",
+            "type": "string",
+            "required": false
+          },
+          "sounds": {
+            "type": "array",
+            "items": {
+              "title": "Sounds",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "title": "Name",
+                  "type": "string",
+                  "required": true
+                },
+                "wavfile": {
+                  "title": "Wav File",
+                  "type": "string",
+                  "required": false
+                },
+                "delay": {
+                  "title": "Time to wait, in seconds, before playing this sound again",
+                  "type": "string",
+                  "required": false
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
