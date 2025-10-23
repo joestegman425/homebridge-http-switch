@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "HomebridgePlaysoundWindowsPlugin",
+  "pluginAlias": "HomebridgeHttpSwitch",
   "pluginType": "platform",
   "singular": true,
   "strictValidation": false,
@@ -10,50 +10,39 @@
         "title": "Name",
         "type": "string",
         "required": true,
-        "default": "Homebridge Plugin that exposes WAV files as Switches"
+        "default": "Homebridge Http Switch"
       },
-      "playlocalsound": {
-        "title": "Play Local Sound Settings",
-        "type": "object",
-        "required": false,
-        "properties": {
-          "devicename": {
-            "title": "Sound Device Name. Name of 'help' will display device names on the system.",
-            "type": "string",
-            "required": true,
-            "default": "help"
-          },
-          "hostAPI": {
-            "title": "Default Host API. Use devicename of 'help' to see available host APIs.",
-            "type": "string"
-          },
-          "wavfolder": {
-            "title": "Wav Files Folder",
-            "type": "string",
-            "required": false
-          },
-          "sounds": {
-            "type": "array",
-            "items": {
-              "title": "Sounds",
-              "type": "object",
-              "properties": {
-                "name": {
-                  "title": "Name",
-                  "type": "string",
-                  "required": true
-                },
-                "wavfile": {
-                  "title": "Wav File",
-                  "type": "string",
-                  "required": false
-                },
-                "delay": {
-                  "title": "Time to wait, in seconds, before playing this sound again",
-                  "type": "string",
-                  "required": false
-                }
-              }
+      "switches": {
+        "type": "array",
+        "items": {
+          "title": "Switches",
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "title": "Name of the switch in the Home app",
+              "type": "string",
+              "required": true,
+              "placeholder": "<enter new name>"
+            },
+            "autoOn": {
+              "title": "When turned off, auto turn back on (stateless switch)",
+              "type": "boolean",
+              "default": false
+            },
+            "autoOnDelay": {
+              "title": "Time to wait before turning back on (in milliseconds)",
+              "type": "integer",
+              "default": 500
+            },
+            "offUrl": {
+              "title": "URL for the GET request when the switch is turned off",
+              "type": "string",
+              "required": true
+            },
+            "onUrl": {
+              "title": "URL for the GET request when the switch is turned on",
+              "description": "Not required",
+              "type": "string"
             }
           }
         }
