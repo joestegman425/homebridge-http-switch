@@ -4,9 +4,9 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Plays a sound file (.wav) on a Windows 10/11 system.",
-  "author": "Your Name",
-  "license": "Apache-2.0",
+  "description": "Homebridge plug-in that creates virtual switches in the Home app that send HTTP GET requests on state change.",
+  "author": "Joe Stegman",
+  "license": "MIT",
   "homepage": "https://github.com/joestegman425/homhomebridge-http-switch#readme",
   "repository": {
     "type": "git",
@@ -16,11 +16,13 @@
     "url": "https://github.com/joestegman425/homebridge-http-switch/issues"
   },
   "keywords": [
-    "homebridge-plugin", "http", "switch"
+    "homebridge-plugin",
+    "http",
+    "switch"
   ],
   "main": "dist/index.js",
   "engines": {
-    "node": "^20.18.0 || ^22.10.0 || ^24.0.0",
+    "node": "^20.18.0 || ^22.10.0 || ^24.11.0",
     "homebridge": "^1.8.0 || ^2.0.0-beta.0"
   },
   "scripts": {
@@ -34,7 +36,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
-    "@types/node": "^24.5.2",
+    "@types/node": "^24.9.2",
     "eslint": "^9.36.0",
     "homebridge": "^2.0.0-beta.30",
     "nodemon": "^3.1.10",

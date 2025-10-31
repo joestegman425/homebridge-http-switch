@@ -5,6 +5,7 @@
       "DOM",
       "ES2022"
     ],
+    "skipLibCheck": true,
     "rootDir": "src",
     "module": "nodenext",
     "moduleResolution": "nodenext",

@@ -7,42 +7,65 @@
     "type": "object",
     "properties": {
       "name": {
-        "title": "Name",
         "type": "string",
-        "required": true,
         "default": "Homebridge Http Switch"
+      },
+      "webhookPort": {
+        "title": "Homebridge webhooks port",
+        "type": "integer",
+        "default": 51440
       },
       "switches": {
         "type": "array",
         "items": {
-          "title": "Switches",
           "type": "object",
           "properties": {
-            "displayName": {
-              "title": "Name of the switch in the Home app",
+            "name": {
+              "title": "Name",
+              "description": "Name of the switch in the Home app",
               "type": "string",
               "required": true,
               "placeholder": "<enter new name>"
             },
-            "autoOn": {
-              "title": "When turned off, auto turn back on (stateless switch)",
-              "type": "boolean",
-              "default": false
-            },
-            "autoOnDelay": {
-              "title": "Time to wait before turning back on (in milliseconds)",
-              "type": "integer",
-              "default": 500
-            },
-            "offUrl": {
-              "title": "URL for the GET request when the switch is turned off",
+            "defaultState": {
+              "title": "Sets the default switch state",
               "type": "string",
-              "required": true
+              "oneOf": [
+                { "title": "on", "enum": ["on"] },
+                { "title": "off", "enum": ["off"] }
+              ]
+            },
+            "autoToggle": {
+              "title": "When toggled off the default state, will auto toggle back to the default state (creates a virtual button)",
+              "type": "boolean"
+            },
+            "autoToggleDelay": {
+              "title": "Time to wait before auto toggling (in seconds)",
+              "type": "integer"
             },
             "onUrl": {
-              "title": "URL for the GET request when the switch is turned on",
-              "description": "Not required",
+              "title": "Send this GET request when the switch is turned on",
               "type": "string"
+            },
+            "onWebhookPath": {
+              "title": "Turn the switch on when this web hook is received",
+              "type": "string"
+            },
+            "offUrl": {
+              "title": "Send this GET request when the switch is turned off",
+              "type": "string"
+            },
+            "offWebhookPath": {
+              "title": "Turn the switch off when this web hook is received",
+              "type": "string"
+            },
+            "statusUrl": {
+              "title": "If present, this URL will be used to get the current accessory status",
+              "type": "string"             
+            },
+            "statusOnRegex": {
+              "title": "If using a status URL, this is a regular expression used on the response to determine 'on' state",
+              "type": "string"             
             }
           }
         }

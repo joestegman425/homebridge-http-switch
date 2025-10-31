@@ -1,6 +1,6 @@
 import type { API } from 'homebridge';
 
-import { HttpSwitchPlatform } from './platform.js';
+import { HttpSwitchPlatform } from './httpswitchplatform.js';
 import { PLATFORM_NAME } from './settings.js';
 
 /**
