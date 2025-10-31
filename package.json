@@ -3,7 +3,7 @@
   "displayName": "Homebridge HTTP Switch",
   "type": "module",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Homebridge plug-in that creates virtual switches in the Home app that send HTTP GET requests on state change.",
   "author": "Joe Stegman",
   "license": "MIT",
